@@ -1,3 +1,10 @@
+/*
+Author: Luis Grijalva
+Student ID: 100719475
+Date Completed: 1/24/2020
+
+Lab 1 - DOM Manipulation
+*/
 "use strict";
 //IIFE - Immediately Invoked Function Expression
 // mean? -> anonymous self-executing function
@@ -7,7 +14,7 @@
         //Step 2.1
         //Get the products element
         let products = document.getElementById("products");
-        //Get the "a" tag as a child from products and change its text
+        //Get the the text from the "a" tag (its last child) and modify it
         products.lastChild.lastChild.textContent = " Projects";
 
         //Step 2.2
@@ -25,6 +32,23 @@
         humanResources.lastChild.lastChild.textContent = " Human Resources";
         //Append to document. Get "contact us" item and insert the new item before it
         navbarUl.insertBefore(humanResources,navbarUl.childNodes[8]);
+
+        //Step 2.3
+        //Create a new "nav" element
+        let bottomNavbar = document.createElement("nav");
+        //Set its class according to documentation
+        bottomNavbar.setAttribute("class", "navbar fixed-bottom navbar-light bg-light");
+        //Create new "a" tag of class navbar-brand
+        let navbarTagA = document.createElement("a");
+        navbarTagA.setAttribute("class","navbar-brand");
+        navbarTagA.setAttribute("href","#");
+        //Add the text to it, using the encoded version of the copyright symbol
+        navbarTagA.textContent="\u00A9CopyRight 2020";
+        //Attach the "a" tag to the navbar
+        bottomNavbar.appendChild(navbarTagA);
+        //Attach the navbar as the last element of the "body" tag
+        document.getElementsByTagName("body")[0].appendChild(bottomNavbar);
+        
         
     }
     window.addEventListener("load", Start);
